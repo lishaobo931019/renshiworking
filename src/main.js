@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import $http from './urlPath.js'
 import echarts from 'echarts'
+import 'babel-polyfill'//兼容IE11
 
 
 //引入element-ui组件
