@@ -19,9 +19,17 @@
 					<li class="list-list">曹操</li>
 					<li class="list-list">接待</li>
 					<li class="list-list">
-						<b class="yidong">移动</b>
+						<b class="yidong" @click="nav">移动</b>
 						<b id="mingxi">历史明细</b>
 					</li>
+					<ul class="nav" >
+							<li>公司总部</li>
+							<li>联动U谷</li>
+							<li>天津基地</li>
+							<li>天津项目</li>
+							<li>山东子公司</li>
+							<li>南京子公司</li>
+						</ul>
 				</ul>
 				<ul class="detiallist">
 					<li class="list-list">1001</li>
@@ -90,31 +98,31 @@
 						<h4>公司总部</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>联动U谷</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>天津基地</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>天津项目</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>山东子公司</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>南京子公司</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>出差人员</h4>
 						<h5>(XXX)人</h5>
 					</li>
-					<li>
+					<li @click="tanchu">
 						<h4>未到岗人员</h4>
 						<h5>(XXX)人</h5>
 					</li>
@@ -134,13 +142,13 @@
 		},
 		methods:{
 			tanchu(ev){
-				console.log(1);
+//				console.log(1);
 				var yincangliebiao = document.getElementById("yincangliebiao");
 				yincangliebiao.style.visibility = "visible";
 				var evt = ev || event;
 			    evt.stopPropagation();
 				document.addEventListener("click",function(){
-					console.log(111111111)
+//					console.log(111111111)
 			        yincangliebiao.style.visibility = "hidden";
 			    });
 			    var oUl = document.getElementById('yincangliebiao');
@@ -148,6 +156,26 @@
 			    	event=event||window.event;
 			        event.stopPropagation();
 			    })
+			},
+			nav(ev){
+				var evt = ev || window.event;
+				console.log(evt.target.parentNode.parentNode)
+				var nav = evt.target.parentNode.parentNode.getElementsByClassName("nav")[0];
+				nav.style.display = "block";
+				document.addEventListener("click",function(){
+			        nav.style.display="none";
+			    });
+			    var oUl = document.getElementById('yincangliebiao');
+			    oUl.addEventListener("click",function(){
+			        nav.style.display="none";
+			    });
+			    //阻止冒泡
+			    var evt = ev || event;
+			    evt.stopPropagation();
+			    nav.addEventListener("click",function(event){
+			        event=event||window.event;
+			        event.stopPropagation();
+			    });
 			}
 		}
 	}
@@ -268,5 +296,21 @@ h5{
 	color: #00B7EE;
 	text-decoration: none;
 	cursor: pointer
+}
+#yincangliebiao .nav{
+	width:130px;
+	height:180px;
+	border:1px solid #000000;
+	position: absolute;
+	background: dodgerblue;
+	top:0px;
+	right: -132px;
+	display: none;
+}
+#yincangliebiao .nav li{
+	width: 130px;
+	height: 30px;
+	float: left;
+	line-height: 30px;
 }
 </style>
