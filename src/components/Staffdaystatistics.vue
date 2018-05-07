@@ -202,18 +202,18 @@
 		display: block;
 		height: 20px;
 	}
-h3{
+#outbox h3{
 	text-align: center;
 	height: 50px;
 	line-height: 50px;
 	/*border: 1px solid red;*/
 }
-h4{
+#personbox2 h4{
 	text-align: center;
 	height: 50px;
 	line-height: 100px;
 }
-h5{
+#personbox2 h5{
 	text-align: center;
 	height: 50px;
 	line-height: 60px;
